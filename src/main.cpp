@@ -2,8 +2,17 @@
 #include <iostream>
 #include <unistd.h>
 
-#define PRINT_MESSAGE // a simple macro definition
+#define PRINT_MESSAGE// a simple macro definition
+
+#define HELLO
+#define WORLD
+
+#define HELLOWORLD "Hello World"
+#define FULL_STR(str1, str2) (str1##str2)
+
 #define AREA(l, b) (l * b) // macro with parameter
+
+#warning "test warning message"
 
 int main(int argc, char** argv) {
     for (int i = 0; i < argc; i++) {
@@ -53,6 +62,8 @@ int main(int argc, char** argv) {
 #else
     std::cout << "PRINT_MESSAGE is undefined" << std::endl;
 #endif
+
+    std::cout << "Full macro: " << FULL_STR(HELLO, WORLD) << std::endl;
 
     return 0;
 }
