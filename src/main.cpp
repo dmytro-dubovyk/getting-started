@@ -14,6 +14,11 @@
 
 #warning "test warning message"
 
+void makeDouble(int& value) {
+    value *= 2;
+    std::cout << "This is " << __PRETTY_FUNCTION__ << std::endl;
+}
+
 int main(int argc, char** argv) {
     for (int i = 0; i < argc; i++) {
         std::cout<< "command line parameter[" << i << "]=" << argv[i] << std::endl;
@@ -64,6 +69,10 @@ int main(int argc, char** argv) {
 #endif
 
     std::cout << "Full macro: " << FULL_STR(HELLO, WORLD) << std::endl;
+
+    int v = 10;
+    makeDouble(v);
+    std::cout << "v = " << v << std::endl;
 
     return 0;
 }
